@@ -1,5 +1,5 @@
-import React, { useState, useReducer } from "react";
-import { taskReducer, initialState } from "../reducers/taskReducer"
+import React, { useState } from "react";
+
 
 const ToDoForm = ({ dispatch }) => {
     const [input, setInput] = useState("");
@@ -13,6 +13,7 @@ const ToDoForm = ({ dispatch }) => {
             e.preventDefault();
             const newTask = { item: input, completed: false, id: Date.now() }
             dispatch({ type: "ADD_TASK", payload: newTask })
+            setInput("")
         }}>
             <input
                 name="input"
